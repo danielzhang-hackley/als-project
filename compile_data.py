@@ -19,9 +19,9 @@ def format_ppi():
     ppi = pd.read_csv('data/9606.protein.links.full.v10.5.txt', sep=' ')
     # keys = pd.read_csv('data/meta/human.name_2_string.tsv', sep='\t', skiprows=1)
 
-    ppi = ppi.iloc[:, 0:2]
-    print(ppi.shape)
-    print(ppi)
+    ppi = ppi.iloc[:, :2]
+    protein_1 = convert_scheme(ppi.to_numpy()[:, 0], keys.to_numpy()[:, 1], keys.to_numpy()[:, 0])
+    protein_2 = convert_scheme(ppi.to_numpy()[:, 1], keys.to_numpy()[:, 1], keys.to_numpy()[:, 0])
 
 
 def format_pathdip():
